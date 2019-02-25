@@ -66,7 +66,7 @@ void door_1()//    1******
 void FILE_1()     //  3***********
 {
   FILE *fp=fopen("/Users/mac/documents/Project_10.txt","a");
-  int j;char j;
+  int j;//char j;
   fprintf(fp,"%s\n%d\n",ptr->Name,ptr,ptr->roll_no);
   for(j=0;j<6;j++)
   fprintf(fp,"%d\n",ptr->g.Subject_marks[j]);
