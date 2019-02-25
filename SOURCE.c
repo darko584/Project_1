@@ -25,14 +25,11 @@ struct file_1{
   }u;
 }i_1[35],*iptr;
 
-int i,j;
-FILE *fp;
+int i,j,k;
 
 void door_1();//   1*****
 
 struct SUBJECT SUBJECT_NAME(struct SUBJECT h);//    2*****
-
-void FILE_1();//         3******
 
 void processResult();//      4****************
 
@@ -45,7 +42,6 @@ int main()//*********************************main()*****************************
   SUBJECT_NAME(g);//correction
 
   ptr=d;//pointer defintion for main structure
-  fflush(fp);
   door_1();//function call (2)
   processResult();
 
@@ -63,6 +59,7 @@ struct SUBJECT SUBJECT_NAME(struct SUBJECT h)
 
 void door_1()//    1******
 {
+  FILE *fp=fopen("/Users/mac/documents/Project_10.txt","w");
   for(i=0;i<3;i++)
   {
   printf("\n********Enter the students name*********\n");
@@ -75,41 +72,24 @@ void door_1()//    1******
       printf("********Entering %s's Subject_marks For %s *********\n",ptr->Name,gptr->a[j]);//open in a loop
       ptr->g.Subject_marks[j]=rand()%100;//random genration of numbers
     }
-    //FILE *fp=fopen("/Users/mac/documents/Project_10.txt","r");//1 ?
-    FILE_1();//function call ******  3
+    fprintf(fp,"%s\n%d\n",ptr->Name,ptr->roll_no);
+    for(k=0;k<6;k++)
+    fprintf(fp,"%f\n",ptr->g.Subject_marks[k]);
   ptr++;
   }
   //FILE();//function call ******  3
-}
-
-void FILE_1()     //  3***********
-{
-  //while(fp==NULL){
-  fp=fopen("/Users/mac/documents/Project_10.txt","a");//1 ?
-  fprintf(fp,"%s\n%d\n",ptr->Name,ptr->roll_no);
-  for(j=0;j<6;j++)
-  fprintf(fp,"%f\n",ptr->g.Subject_marks[j]);
   fclose(fp);
-                // }
-
 }
 
 void processResult()
 {
   FILE *fp0,*fp1;
+  i=0;
   fp0=fopen("/Users/mac/documents/Project_10.txt","r");
   for(i=0;i<3;i++)
-  {
-    fscanf(fp0,"%s%d",iptr->Name,&iptr->roll_no);
-    for(j=0;j<6;j++)
-      {
-        fscanf(fp0,"%d",&iptr->u.Subject_marks_0[j]);
-      }
-    iptr++;
-  }
+    fread(&i_1[i],sizeof(struct file_1),1,fp0);
   fclose(fp0);
   fp1=fopen("/Users/mac/documents/Ledger.txt","w");
-  iptr=i_1;
   iptr->Total=0;
   for(i=0;i<3;i++)
     {
