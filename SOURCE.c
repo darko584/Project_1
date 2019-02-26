@@ -121,7 +121,7 @@ void processResult()
       strcpy(iptr->Grade,"C-");
     else
       strcpy(iptr->Grade,"F");
-  fprintf(fp1,"%s %d %f %f %s ",iptr->Name,iptr->roll_no,iptr->Total,iptr->Percentage,iptr->Grade);
+  fprintf(fp1,"\n%s\t%d\t%f\t%f\t%s\n ",iptr->Name,iptr->roll_no,iptr->Total,iptr->Percentage,iptr->Grade);
     //for(i=0;i<6;i++)
   fprintf(fp1,"%f %f %f %f %f %f",iptr->u.Subject_marks_0[0],iptr->u.Subject_marks_0[1]\
   ,iptr->u.Subject_marks_0[2],iptr->u.Subject_marks_0[3],iptr->u.Subject_marks_0[4],\
