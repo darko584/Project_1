@@ -87,9 +87,14 @@ void processResult()
   i=0;
   fp0=fopen("/Users/mac/documents/Project_10.txt","r");
   for(i=0;i<3;i++)
-    fread(&i_1[i],sizeof(struct file_1),1,fp0);
+    {
+      for(j=0;j<6;j++)
+      fscanf(fp0," %[^\n]s %d %d",i_1[i].Name,&i_1[i].roll_no,&i_1[i].u.Subject_marks_0[j]);
+      printf("%s\n %d %d",i_1[i].Name,i_1[i].roll_no,i_1[i].u.Subject_marks_0[j]);
+    }
   fclose(fp0);
   fp1=fopen("/Users/mac/documents/Ledger.txt","w");
+  iptr=i_1;
   iptr->Total=0;
   for(i=0;i<3;i++)
     {
