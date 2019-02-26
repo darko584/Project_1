@@ -10,7 +10,7 @@ struct file_0{
   struct subject_marks{
     float Subject_marks[6];
   } g;
-}d[35],*ptr;
+}d[3],*ptr;
 
 struct SUBJECT{
   char a[10][6];
@@ -21,9 +21,9 @@ struct file_1{
   int roll_no;
   float Total,Percentage;
   struct subject_marks_1{
-    int Subject_marks_0[6];
+    float Subject_marks_0[6];
   }u;
-}i_1[35],*iptr;
+}i_1[3],*iptr;
 
 int i,j,k;
 
@@ -83,25 +83,23 @@ void door_1()//    1******
 
 void processResult()
 {
-  FILE *fp0,*fp1;
+  FILE *fp0;
   i=0;
   fp0=fopen("/Users/mac/documents/Project_10.txt","r");
   for(i=0;i<3;i++)
     {
-      for(j=0;j<6;j++)
-      fscanf(fp0," %[^\n]s %d %d",i_1[i].Name,&i_1[i].roll_no,&i_1[i].u.Subject_marks_0[j]);
-      printf("%s\n %d %d",i_1[i].Name,i_1[i].roll_no,i_1[i].u.Subject_marks_0[j]);
+     fscanf(fp0,"%s %d  %f %f %f %f %f %f",i_1[i].Name,&i_1[i].roll_no,&i_1[i].u.Subject_marks_0[0],&i_1[i].u.Subject_marks_0[1]\
+      ,&i_1[i].u.Subject_marks_0[2],&i_1[i].u.Subject_marks_0[3],&i_1[i].u.Subject_marks_0[4],\
+      &i_1[i].u.Subject_marks_0[5]);
     }
   fclose(fp0);
+  FILE *fp1;
   fp1=fopen("/Users/mac/documents/Ledger.txt","w");
-  iptr=i_1;
-  iptr->Total=0;
   for(i=0;i<3;i++)
     {
+    i_1[i].Total=0;
     for(j=0;j<6;j++)
-      {
         iptr->Total+=iptr->u.Subject_marks_0[j];
-      }
   iptr->Percentage=iptr->Total/5;
     if(iptr->Percentage>=95)
       strcpy(iptr->Grade,"A+");
@@ -123,16 +121,19 @@ void processResult()
       strcpy(iptr->Grade,"C-");
     else
       strcpy(iptr->Grade,"F");
-  fprintf(fp1,"%s\n%d\n%f\n%f\n%s\n",iptr->Name,iptr->roll_no,iptr->Total,iptr->Percentage,iptr->Grade);
-    for(i=0;i<6;i++)
-  fprintf(fp1,"%d\t",iptr->u.Subject_marks_0[i]);
-  fclose(fp1);
+  fprintf(fp1,"%s %d %f %f %s ",iptr->Name,iptr->roll_no,iptr->Total,iptr->Percentage,iptr->Grade);
+    //for(i=0;i<6;i++)
+  fprintf(fp1,"%f %f %f %f %f %f",iptr->u.Subject_marks_0[0],iptr->u.Subject_marks_0[1]\
+  ,iptr->u.Subject_marks_0[2],iptr->u.Subject_marks_0[3],iptr->u.Subject_marks_0[4],\
+  iptr->u.Subject_marks_0[5]);
     //FILE_2();
-    iptr++;
+iptr++;
     }
-  }
+    fclose(fp1);
+}
 
-/*void FILE_2()
+
+/*void FILE_2(
   {
       FILE *fp1=fopen("/Users/mac/documents/Ledger.txt","a");
         fprintf(fp1,"%s\n%d\n%f\n%f\n",iptr->Name,iptr->roll_no,iptr->Total,iptr->Percentage);
