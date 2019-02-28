@@ -1,7 +1,0 @@
-/Users/mac/github/Project_1/SOURCE.c:383:23: error: passing 'float' to parameter of incompatible type 'const char *'
-          if(strcmp(t,i_1[i].u.Subject_marks_0[j])==0)
-                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include/string.h:77:43: note: passing argument to parameter '__s2' here
-int      strcmp(const char *__s1, const char *__s2);
-                                              ^
-1 error generated.

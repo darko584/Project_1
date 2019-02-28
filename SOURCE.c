@@ -137,7 +137,7 @@ void Search_Method()
   printf("________________Type 1 for search by 'Name'\n________________Type 2 for search by 'Roll number'\n\
 ________________Type 3 for search by 'Highest Total Marks'\n________________Type 4 for search by 'Ascending \
 order by name'\n________________Type 5 for search by'Descending order by Total marks'\n\
-________________Type 6 for search by 'Descending Roll no'\n=====>");
+________________Type 6 for search by 'Descending Roll no'\n________________Type 7 for search by 'Highest_marks_sorting'\n=====>");
 }
 
 void door_1()
@@ -235,7 +235,7 @@ void Search_by_Name()
         else
         {
           red();
-          printf("--------------------------!!-ERROR-!!-------------------------------\n");
+          printf("\n--------------------------!!-END-!!-------------------------------\n");
         }
       }
 }
@@ -258,7 +258,7 @@ void Search_by_Roll()
       else
       {
         red();
-        printf("--------------------------!!-ERROR-!!-------------------------------\n");
+        printf("--------------------------!!-END-!!-------------------------------\n");
       }
     }
 
@@ -283,7 +283,7 @@ void Search_by_T()
       else
       {
         red();
-        printf("--------------------------!!-ERROR-!!-------------------------------\n");
+        printf("--------------------------!!-END-!!-------------------------------\n");
       }
     }
 }
@@ -378,24 +378,24 @@ void Highest_marks_sorting()
   scanf(" %[^\n]s",t);
     for(i=0;i<3;i++)
     {
-        for(j=0;j<3;j++)
-        {
-          if(strcmp(t,i_1[i].u.Subject_marks_0[j])==0)
+      if(strcmp(t,gptr->a[i])==0)
           {
             for(k=1+i;k<3;k++)
             {
-              if(i_1[i].u.Subject_marks_0[j]<i_1[k].u.Subject_marks_0[j])
+              if(i_1[i].u.Subject_marks_0[i]<i_1[k].u.Subject_marks_0[i])
                 {
                   temp=i_1[i];
                   i_1[i]=i_1[k];
                   i_1[k]=temp;
                 }
+
             }
+
           }
 
         }
 
-    }
+
    for(i=0;i<3;i++)
    {
      red();
