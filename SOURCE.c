@@ -78,9 +78,55 @@ void Descending_Roll_no();
 
 void Highest_marks_sorting();
 
+void continue_1 ()
+{
+  char f;
+  int o;
+  printf("If you want to continue Press___________'Y'\n");
+  scanf(" %c",&f);
+  if(f=='Y'){
+    Search_Method();
+    scanf("%d",&o);
+    switch(o)
+      {
+        case 1:
+        Search_by_Name();
+        break;
+        case 2:
+        Search_by_Roll();
+        break;
+        case 3:
+        Search_by_T();
+        break;
+        case 4:
+        Ascending_Name();
+        break;
+        case 5:
+        Descending_Total_marks();
+        break;
+        case 6:
+        Descending_Roll_no();
+        break;
+        case 7:
+        Highest_marks_sorting();
+        break;
+        default:
+        red();
+        printf("\n--------------------------!!-ERROR-!!-------------------------------\n");
+        break;
+      }
+    }
+    else{
+      red();
+      printf("\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Program Terminated!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n");
+    }
+
+}
+
 int main()//*********************************main()******************************
 {
   int o;
+  char f;
   iptr=i_1;
   gptr=&g;
   SUBJECT_NAME(g);//correction
@@ -118,8 +164,12 @@ int main()//*********************************main()*****************************
     printf("\n--------------------------!!-ERROR-!!-------------------------------\n");
     break;
   }
+  continue_1();
+
   return 0;
 }
+
+
 struct SUBJECT SUBJECT_NAME(struct SUBJECT h)
 {
   for(i=1;i<7;i++)
@@ -238,6 +288,7 @@ void Search_by_Name()
           printf("\n--------------------------!!-END-!!-------------------------------\n");
         }
       }
+    continue_1();
 }
 
 void Search_by_Roll()
@@ -261,7 +312,7 @@ void Search_by_Roll()
         printf("--------------------------!!-END-!!-------------------------------\n");
       }
     }
-
+    continue_1();
 }
 
 void Search_by_T()
@@ -286,6 +337,7 @@ void Search_by_T()
         printf("--------------------------!!-END-!!-------------------------------\n");
       }
     }
+    continue_1();
 }
 
 void Ascending_Name()
@@ -313,6 +365,7 @@ void Ascending_Name()
        printf("|Total = %f\t|Percentage = %f",i_1[i].Total,i_1[i].Percentage);
        printf("\n|Grade : %s\n",i_1[i].Grade);
     }
+    continue_1();
 }
 
 void Descending_Total_marks()
@@ -339,7 +392,7 @@ void Descending_Total_marks()
       printf("|Total = %f\t|Percentage = %f",i_1[i].Total,i_1[i].Percentage);
       printf("\n|Grade : %s\n",i_1[i].Grade);
     }
-
+    continue_1();
 }
 
 void Descending_Roll_no()
@@ -367,7 +420,7 @@ void Descending_Roll_no()
     printf("|Total = %f\t|Percentage = %f",i_1[i].Total,i_1[i].Percentage);
     printf("\n|Grade : %s\n",i_1[i].Grade);
   }
-
+  continue_1();
 }
 
 void Highest_marks_sorting()
@@ -405,6 +458,5 @@ void Highest_marks_sorting()
      printf("|Total = %f\t|Percentage = %f",i_1[i].Total,i_1[i].Percentage);
      printf("\n|Grade : %s\n",i_1[i].Grade);
    }
-
-
+   continue_1();
 }
