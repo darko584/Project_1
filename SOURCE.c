@@ -119,6 +119,7 @@ void continue_1 ()
     else{
       red();
       printf("\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Program Terminated!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n");
+      exit(0);
     }
 
 }
